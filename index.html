@@ -200,6 +200,11 @@
     @media (max-width: 900px) {
       .wsw-calc .calc-wrap { grid-template-columns: 1fr; }
       .wsw-calc .slider-grid { grid-template-columns: 1fr; }
+      /* Risk cards — tighten at tablet */
+      .wsw-calc .risk-card-text { padding: 5px 6px; }
+      .wsw-calc .risk-card-name { font-size: 0.70rem !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; }
+      .wsw-calc .risk-card-desc { font-size: 0.62rem !important; }
+      .wsw-calc .risk-card-badge { width: 44px; min-width: 44px; font-size: 0.82rem !important; }
       /* Hero: title/badges first, disclosures stack below */
       .wsw-calc .hero-left  { order: 1; }
       .wsw-calc .hero-right { order: 2; height: auto; }
@@ -268,7 +273,8 @@
     /* ── Risk profile cards — horizontal layout ── */
     .wsw-calc .risk-section { margin-bottom: 4px; }
     .wsw-calc .risk-section-label { font-size: 0.78rem; font-weight: 500; color: var(--text-mid); margin-bottom: 8px; display: block; }
-    .wsw-calc .risk-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; align-items: stretch; }
+    .wsw-calc .risk-section-label-full { margin-top: 4px; margin-bottom: 6px; }
+    .wsw-calc .risk-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; align-items: stretch; }
     .wsw-calc .risk-card { position: relative; cursor: pointer; display: flex; align-items: stretch; min-height: 80px; width: 100%; }
     .wsw-calc .risk-card input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
     .wsw-calc .risk-card-inner {
@@ -282,11 +288,11 @@
       box-shadow: 0 0 0 2px rgba(35,108,115,0.12);
     }
     .wsw-calc .risk-card-inner:hover { border-color: rgba(35,108,115,0.38); background: rgba(255,255,255,0.7); }
-    .wsw-calc .risk-card-text { padding: 8px 10px; flex: 1; display: flex; flex-direction: column; justify-content: flex-start; }
-    .wsw-calc .risk-card-name { font-size: 0.78rem; font-weight: 700; color: var(--text-dark); display: block; line-height: 1.2; }
+    .wsw-calc .risk-card-text { padding: 6px 8px; flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: flex-start; }
+    .wsw-calc .risk-card-name { font-size: 0.78rem; font-weight: 700; color: var(--text-dark); display: block; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .wsw-calc .risk-card-desc { font-size: 0.63rem; color: var(--text-soft); display: block; margin-top: 1px; }
     .wsw-calc .risk-card-badge {
-      width: 54px; display: flex; align-items: center; justify-content: center;
+      width: 50px; min-width: 50px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
       font-size: 0.88rem; font-weight: 800; font-variant-numeric: tabular-nums; color: #fff; flex-shrink: 0;
     }
     .wsw-calc .badge-con { background: var(--c-con); }
@@ -639,7 +645,7 @@
       opacity: 0;
     }
     .wsw-calc .advisor-form-wrap.active {
-      max-height: 700px; opacity: 1;
+      max-height: 1000px; opacity: 1;
     }
     .wsw-calc .advisor-form-inner {
       margin-top: 16px;
@@ -830,8 +836,8 @@
         EDIT ASSUMPTIONS: change rates in JS → PROFILE_RETURNS object.
         Card labels auto-sync from JS.
       -->
+      <span class="risk-section-label risk-section-label-full">Select a Generic Illustrative Risk Profile</span>
       <div class="risk-section">
-        <span class="risk-section-label">Select a Generic Illustrative Risk Profile</span>
         <div class="risk-cards">
           <label class="risk-card">
             <input type="radio" name="riskProfile" value="conservative" checked/>

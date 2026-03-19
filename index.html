@@ -200,6 +200,9 @@
     @media (max-width: 900px) {
       .wsw-calc .calc-wrap { grid-template-columns: 1fr; }
       .wsw-calc .slider-grid { grid-template-columns: 1fr; }
+      /* Hero: title/badges first, disclosures stack below */
+      .wsw-calc .hero-left  { order: 1; }
+      .wsw-calc .hero-right { order: 2; height: auto; }
       /* slider grid: 2-col \u2192 1-col */
       .slider-grid { grid-template-columns: 1fr; }
 
@@ -554,8 +557,12 @@
       .wsw-calc .disclaimer-item strong { font-size: 0.94rem !important; }
       /* Force peach on html+body — belt and suspenders for all mobile browsers */
       html, body { background-color: #F2C4B3 !important; }
-      /* hero */
-      .wsw-calc .hero { padding: 20px 16px 24px; }
+      /* hero — title leads, disclosures stack below */
+      .wsw-calc .hero { padding: 16px 14px 20px; }
+      .wsw-calc .hero-left  { order: 1; }
+      .wsw-calc .hero-right { order: 2; height: auto; gap: 10px; }
+      .wsw-calc .hero h1 { font-size: 1.8rem !important; }
+      .wsw-calc .badge { font-size: 0.65rem !important; padding: 3px 8px !important; }
       .wsw-calc .hero-inner { gap: 16px; }
       .wsw-calc .hero h1 { font-size: 1.6rem; }
 

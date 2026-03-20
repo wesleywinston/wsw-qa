@@ -720,9 +720,95 @@
     }
     .wsw-calc .advisor-success p { font-size: 0.8rem; color: var(--text-soft); line-height: 1.6; }
     
+  
+  /* ── PRE-LAUNCH TESTING BANNER — remove entirely when registered ── */
+  #wsw-prelaunch-banner {
+    background: #133b41;
+    color: #f2d8b6;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    padding: 14px 20px;
+    position: relative;
+    z-index: 99999;
+    border-bottom: 3px solid #f1846c;
+  }
+  #wsw-prelaunch-banner .banner-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  #wsw-prelaunch-banner .banner-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  #wsw-prelaunch-banner .banner-body { flex: 1; }
+  #wsw-prelaunch-banner .banner-title {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #f1846c;
+    display: block;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  #wsw-prelaunch-banner .banner-text { color: rgba(242,216,182,0.85); }
+  #wsw-prelaunch-banner .banner-text strong { color: #f2d8b6; }
+  #wsw-prelaunch-banner .banner-dismiss {
+    background: none;
+    border: 1px solid rgba(242,216,182,0.3);
+    color: rgba(242,216,182,0.6);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  #wsw-prelaunch-banner .banner-dismiss:hover {
+    border-color: rgba(242,216,182,0.6);
+    color: #f2d8b6;
+  }
+  @media (max-width: 600px) {
+    #wsw-prelaunch-banner { font-size: 0.76rem; padding: 12px 14px; }
+    #wsw-prelaunch-banner .banner-inner { gap: 10px; }
+  }
   </style>
 </head>
 <body>
+
+<!-- ══ PRE-LAUNCH TESTING BANNER ══════════════════════════════════
+     REMOVE THIS ENTIRE BLOCK when Oklahoma RIA registration is complete.
+     Do not place inside .wsw-calc — sits above tool, outside all wrappers.
+═══════════════════════════════════════════════════════════════════ -->
+<div id="wsw-prelaunch-banner">
+  <div class="banner-inner">
+    <span class="banner-icon">⚠️</span>
+    <div class="banner-body">
+      <span class="banner-title">Testing Tool — Pre-Launch Disclaimer</span>
+      <span class="banner-text">
+        This retirement calculator is provided for <strong>internal testing and illustrative purposes only.</strong>
+        It is not investment advice, a recommendation, or a guarantee of any outcome. All projections are hypothetical
+        and based on assumptions that may not reflect actual market conditions or your personal situation.
+        Results should not be relied upon for making investment decisions.<br/>
+        <strong>Winston Solidus Wealth, LLC is not yet registered as an investment adviser with the State of Oklahoma
+        or any other authority.</strong> This tool is strictly for internal user testing and will only be made available
+        to the public after registration is complete. Please consult a qualified financial adviser before making
+        any investment decisions.
+      </span>
+    </div>
+    <button class="banner-dismiss" onclick="document.getElementById('wsw-prelaunch-banner').style.display='none'">
+      Dismiss ✕
+    </button>
+  </div>
+</div>
+
 <div class="wsw-calc" data-page="Retirement Calculator">
 
   <!-- Hero — 2-col: left=title+body+badges, right=disclosures clustered -->

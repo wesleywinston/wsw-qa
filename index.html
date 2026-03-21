@@ -1339,6 +1339,9 @@
 
       if (!name)                          { alert('Please enter your name.'); return; }
       if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }
+      if (phone && phone.replace(/\D/g,'').length > 0 && phone.replace(/\D/g,'').length < 7) {
+        alert('Please enter a valid phone number.'); return;
+      }
       if (!auth)                          { alert('Please check the authorization box to proceed.'); return; }
 
       btn.disabled = true;
@@ -1519,6 +1522,17 @@
         if (isNaN(v)) return;
         v = Math.min(parseFloat(s.max), Math.max(parseFloat(s.min), v));
         s.value = v; setGrad(s,'var(--teal)'); calculate();
+      });
+      // Bug #1 fix: on blur, always clamp and sync displayed value
+      // so spinbutton never shows a value that disagrees with calculation
+      i.addEventListener('blur', () => {
+        let v = parseFloat(i.value);
+        if (isNaN(v) || v === '') v = parseFloat(s.min);
+        v = Math.min(parseFloat(s.max), Math.max(parseFloat(s.min), v));
+        s.value = v;
+        i.value = v;
+        setGrad(s,'var(--teal)');
+        calculate();
       });
     }
 
